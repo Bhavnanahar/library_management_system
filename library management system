@@ -1,0 +1,57 @@
+def display_welcome_message():
+    print("Welcome to SkillCircle Library!")
+
+def display_book_options():
+    print("Pass 1 for 101 book information")
+    print("Pass 2 for 102 book information")
+    print("Pass 3 for 103 book information")
+    print("Pass 4 for 104 book information")
+    print("Pass 5 for 105 book information")
+
+def get_user_choice():
+    while True:
+        try:
+            choice = int(input("Enter book pass number: "))
+            if 1 <= choice <= 5:
+                return choice
+            else:
+                print("Invalid choice. Please enter a number between 1 and 5.")
+        except ValueError:
+            print("Invalid input. Please enter 1  a number.")
+
+def display_book_information(choice):
+    if choice == 1:
+        print("101 book information")
+    elif choice == 2:
+        print("102 book information")
+    elif choice == 3:
+        print("103 book information")
+    elif choice == 4:
+        print("104 book information")
+    elif choice == 5:
+        print("105 book information")
+
+def continue_or_exit():
+    while True:
+        choice = input("Press 1 to continue, 2 to exit: ")
+        if choice == '1':
+            return True
+        elif choice == '2':
+            print("Thank you for visiting SkillCircle Library!")
+            return False
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
+
+def main():
+    while True:
+        display_welcome_message()
+        display_book_options()
+
+        choice = get_user_choice()
+        display_book_information(choice)
+
+        if not continue_or_exit():
+            break
+
+if __name__ == "__main__":
+    main()
